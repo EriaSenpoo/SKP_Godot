@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pi- Pong", "Pi- Pong.csproj", "{AEC2DDE4-87B4-4621-B229-B4E30DE85958}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	Release|Any CPU = Release|Any CPU
+	Tools|Any CPU = Tools|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEC2DDE4-87B4-4621-B229-B4E30DE85958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEC2DDE4-87B4-4621-B229-B4E30DE85958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEC2DDE4-87B4-4621-B229-B4E30DE85958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEC2DDE4-87B4-4621-B229-B4E30DE85958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEC2DDE4-87B4-4621-B229-B4E30DE85958}.Tools|Any CPU.ActiveCfg = Tools|Any CPU
+		{AEC2DDE4-87B4-4621-B229-B4E30DE85958}.Tools|Any CPU.Build.0 = Tools|Any CPU
+	EndGlobalSection
+EndGlobal
