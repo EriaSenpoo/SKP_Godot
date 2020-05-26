@@ -3,39 +3,80 @@ using System;
 
 public class Player : KinematicBody2D
 {
+	bool moveable = false;
+	float speed = 0.1f;
+
+	public override void _PhysicsProcess(float delta)
+	{
+		player_movement();
+	}
+	
+	private void start_game()
+	{
+		moveable = true;
+	}
+
+	public void player_movement()
+	{
+		if (moveable)
+		{
+			if (Input.IsActionPressed("rotate_left"))
+			{
+				Rotation += speed;
+			}
+			else if(Input.IsActionPressed("rotate_right"))
+			{
+				Rotation -= speed;
+			}
+		}
+	}
+
+	public override void _Ready()
+	{
+		
+	}
+	/*
+	int screen_width = 1024;
+	int screen_height = 600;
 	Sprite sprite;
 	Vector2 position;
-	Vector2 outer_sprite_size;
-	Vector2 inner_sprite_size;
 	CollisionPolygon2D collision;
 	//int sprite_orientation = 360;
 	int sprite_thickness = 35;
+	Vector2 center = new Vector2(0, 0);
 	
+
+	int speed = 300;
+
+	int angle = 0;
+	//int distance = 250;
+	Vector2 rotation_point = new Vector2(0, 0);
+
+	public override void _PhysicsProcess(float delta)
+	{
+		player_movement();
+	}
+
 	public override void _Ready()
 	{
-		position = new Vector2(512, 300);
+		Vector2 distance = new Vector2(0, 0 - 250 + sprite_thickness);
+		rotation_point = new Vector2(screen_width / 2, screen_height / 2);
+		position = rotation_point + new Vector2(Convert.ToSingle(Math.Cos(angle)), Convert.ToSingle(Math.Sin(angle))) * distance;
+		position = rotation_point + (position - rotation_point).Rotated(angle);
 		sprite = GetNode<Sprite>("Sprite");
-		collision = GetNode<CollisionPolygon2D>("CollisionPolygon2D");
-		outer_sprite_size = sprite.Texture.GetSize();
-		inner_sprite_size = new Vector2(outer_sprite_size.x - sprite_thickness, outer_sprite_size.y - sprite_thickness);
 		player_position();
-		_Draw();
 	}
 	
+	public void player_movement()
+	{
+		angle = Convert.ToInt32((Input.IsActionPressed("rotate_right"))) - Convert.ToInt32((Input.IsActionPressed("rotate_left")));
+		Vector2 rotate_direction = new Vector2(0, 0);
+		var motion = rotate_direction.Normalized() * speed;
+	}
+
 	public void player_position()
 	{
 		sprite.Position = position;
-		
 	}
-
-	public override void _Draw()
-	{
-		Color cyan = Color.ColorN("Cyan");
-
-		GD.Print("Outer sprite size: " + outer_sprite_size);
-		GD.Print("Inner sprite size: " + inner_sprite_size);
-		
-		collision.Position = new Vector2(512, 300 - 215);
-		//collision.Polygon = PoolVector2Array(); // PoolVector2Array doesn't exist for some reason
-	}
+	*/
 }

@@ -11,9 +11,12 @@ script = ExtResource( 3 )
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512, 300 )
 
 [node name="Countdown_Timer" type="Timer" parent="."]
 
 [node name="Score_Timer" type="Timer" parent="."]
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
+[connection signal="timeout" from="Countdown_Timer" to="Player" method="start_game"]
+[connection signal="timeout" from="Score_Timer" to="Ball" method="start_game"]

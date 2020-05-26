@@ -12,7 +12,6 @@ public class HUD : CanvasLayer
 
 	private void Game_Start()
 	{
-
 		Timer countdown_timer = GetTree().GetRoot().GetNode("Main").GetNode<Timer>("Countdown_Timer");
 		Button start_button = GetNode<Button>("Start_Button");
 		score_timer.Connect("timeout", this, "score_timer_test");
