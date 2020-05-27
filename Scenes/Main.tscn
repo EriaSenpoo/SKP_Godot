@@ -1,22 +1,31 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Main.cs" type="Script" id=3]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=4]
 
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+bounce = 1.0
+
 [node name="Main" type="Node2D"]
+position = Vector2( 1, 0 )
 script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 position = Vector2( 512, 300 )
+physics_material_override = SubResource( 1 )
 
 [node name="Countdown_Timer" type="Timer" parent="."]
 
 [node name="Score_Timer" type="Timer" parent="."]
 
+[node name="Ball_Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 [connection signal="timeout" from="Countdown_Timer" to="Player" method="start_game"]
-[connection signal="timeout" from="Score_Timer" to="Ball" method="start_game"]

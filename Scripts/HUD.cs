@@ -13,6 +13,8 @@ public class HUD : CanvasLayer
 	private void Game_Start()
 	{
 		Timer countdown_timer = GetTree().GetRoot().GetNode("Main").GetNode<Timer>("Countdown_Timer");
+		Timer ball_timer = GetTree().GetRoot().GetNode("Main").GetNode<Timer>("Ball_Timer");
+		RigidBody2D ball = GetTree().GetRoot().GetNode("Main").GetNode<RigidBody2D>("Ball");
 		Button start_button = GetNode<Button>("Start_Button");
 		score_timer.Connect("timeout", this, "score_timer_test");
 		score_timer.WaitTime = 1;
@@ -20,6 +22,8 @@ public class HUD : CanvasLayer
 		start_button.Hide();
 		countdown_timer.Connect("timeout", this, "start_countdown");
 		countdown_timer.OneShot = false;
+		ball_timer.Connect("timeout", ball, "start_ball");
+		ball_timer.Start();
 		countdown_timer.Start();
 	}
 

@@ -7,29 +7,31 @@ public class Ball : RigidBody2D
 	public float min_speed = 10;
 
 	[Export]
-	public float speed = 100;
+	public float speed = 20;
 
 	[Export]
 	public float max_speed = 100;
-	
-	Vector2 direction = new Vector2(0, 0);
+
+	Vector2 last_velocity = new Vector2(0, 0);
+	Vector2 velocity;
 	bool moveable = false;
-	
-	public override void _Process(float delta)
-	{
-		movement();
-	}
 
 	public override void _Ready()
 	{
 
 	}
-	
-	private void start_game()
+
+	public override void _Process(float delta)
+	{
+		movement();
+	}
+
+	private void start_ball()
 	{
 		Random start_direction = new Random();
-		start_direction.Next(0, 360);
-		direction = new Vector2(Rotation, Convert.ToSingle(start_direction)); // This line is fucked, pure guesswork
+		float random_direction_y = start_direction.Next(-1, 1);
+		float random_direction_x = start_direction.Next(-1, 1);
+		velocity = new Vector2(random_direction_x, random_direction_y);
 		moveable = true;
 	}
 
@@ -37,7 +39,16 @@ public class Ball : RigidBody2D
 	{
 		if (moveable)
 		{
-			direction = direction.Normalized() * speed; // need it to move forward somehow
+			AddForce(new Vector2(0, 0), velocity);
 		}
+	}
+
+	private void on_collision(object body)
+	{
+		Random start_direction = new Random();
+		float random_direction_y = start_direction.Next(-1, 1);
+		float random_direction_x = start_direction.Next(-1, 1);
+		velocity = velocity.Bounce(new Vector2(random_direction_y, random_direction_x));
+		ContactsReported += 1;
 	}
 }
