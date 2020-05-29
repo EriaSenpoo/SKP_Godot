@@ -58,6 +58,10 @@
     <Compile Include="Scripts\HUD.cs" />
     <Compile Include="Scripts\Main.cs" />
     <Compile Include="Scripts\Player.cs" />
+    <Compile Include="Scripts\Powerups.cs" />
+    <Compile Include="Scripts\Powerup_Ball_Speed_Up.cs" />
+    <Compile Include="Scripts\Powerup_Grow.cs" />
+    <Compile Include="Scripts\Powerup_Player_Slow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

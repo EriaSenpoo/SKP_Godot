@@ -4,7 +4,7 @@ using System;
 public class Player : KinematicBody2D
 {
 	bool moveable = false;
-	float speed = 0.1f;
+	public float speed = 0.1f;
 
 	public override void _PhysicsProcess(float delta)
 	{
