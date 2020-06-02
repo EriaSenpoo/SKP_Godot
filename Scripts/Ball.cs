@@ -27,7 +27,7 @@ public class Ball : RigidBody2D
 	public override void _Process(float delta)
 	{
 		//GD.Print(force);
-		//GD.Print(speed);
+		//GD.Print(speed); // powerup doesn't change ball speed yet
 		movement();
 	}
 

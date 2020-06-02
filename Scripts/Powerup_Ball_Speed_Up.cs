@@ -20,7 +20,7 @@ public class Powerup_Ball_Speed_Up : Area2D
 	{
 		if (active)
 		{
-			ball.speed += 5555; // Test for ball
+			ball.speed += 20; // doesn't work, is different from Ball.cs speed. need get { } set { }
 		}
 	}
 
