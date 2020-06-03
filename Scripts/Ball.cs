@@ -45,8 +45,8 @@ public class Ball : RigidBody2D
 		if (moveable)
 		{
 			Rotation = 0f;
-			SetAppliedForce(velocity * speed);
-			force = GetAppliedForce();
+			AppliedForce = (velocity * speed);
+			force = AppliedForce;
 			if (collision)
 			{
 				if (speed > max_speed)

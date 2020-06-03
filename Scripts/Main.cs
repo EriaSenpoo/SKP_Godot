@@ -10,6 +10,8 @@ public class Main : Node2D
 	{
 		Timer powerup_timer = new Timer();
 		Timer powerup_destroyer = new Timer();
+		powerup_timer.Name = "Powerup_Spawner";
+		powerup_destroyer.Name = "Powerup_Remover";
 		powerup_timer.Connect("timeout", this, "powerup_spawner");
 		powerup_destroyer.Connect("timeout", this, "powerup_remover");
 		powerup_timer.OneShot = false;
